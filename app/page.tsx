@@ -8,6 +8,7 @@ import { RootState, AppDispatch } from "@/lib/store";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
+  const [search, setSearch] = useState("");
 
   const { movies, loading, error } = useSelector(
     (state: RootState) => state.movies
@@ -20,5 +21,23 @@ export default function Home() {
 
   console.log("movies-------", movies);
 
-  return <main className="min-h-screen p-8 bg-white dark:bg-gray-900"></main>;
+  return (
+    <div className="max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <h1 className="text-2xl font-bold dark:text-white">
+          {search ? "Search Results" : "Popular Movies"}
+        </h1>
+      </div>
+
+      {!loading && !error && movies.length === 0 && (
+        <div className="text-center dark:text-white">No movies found</div>
+      )}
+
+      <div>
+        {movies.map((movie) => (
+          <h1>{movie.title}</h1>
+        ))}
+      </div>
+    </div>
+  );
 }
