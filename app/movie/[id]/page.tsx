@@ -9,6 +9,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/lib/store";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@nextui-org/spinner";
+
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.2 },
+  },
+};
 
 export default function MovieDetail() {
   const params = useParams();
@@ -21,28 +36,24 @@ export default function MovieDetail() {
     (state: RootState) => state.movies
   );
 
-  console.log("movieDetail--221--movieDetail", movieDetail);
-
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
   }, [id]);
 
+  if (loading) {
+    return <Spinner label="Loading..." color="success" />;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="p-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen p-8"
     >
       <Button variant="outline" onClick={() => router.back()} className="mb-5">
         Back
       </Button>
-
-      {loading && (
-        <div className="flex justify-center items-center h-32 dark:text-white">
-          {"loading"}
-        </div>
-      )}
 
       {error && (
         <div className="text-red-500 text-center">
@@ -63,14 +74,18 @@ export default function MovieDetail() {
           height={600}
         />
 
-        <div>
+        <motion.div
+          variants={contentVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <h1 className="text-3xl font-bold mb-4">{movieDetail?.title}</h1>
           <p className="text-gray-600 mb-4">{movieDetail?.overview}</p>
           <div className="flex items-center gap-4">
             <span>Release Date: {movieDetail?.release_date}</span>
             <span>Rating: {movieDetail?.vote_average}/10</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
