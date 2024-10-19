@@ -46,8 +46,8 @@ A TMDB API key (Get one here)
 
 1. Clone the repository
 
-git clone https://github.com/yourusername/movie-search-app.git
-cd movie-search-app
+git clone git@github.com:supunishara/arimactest.git
+cd arimactest
 
 2. Install dependencies
 
