@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Movie, MovieDetails } from "@/types/movie";
 import { motion } from "framer-motion";
-import { fetchMovieDetails } from "@/lib/features/moviesSlice";
+import { fetchMovieDetails } from "@/lib/features/movieDetailSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/lib/store";
 import Image from "next/image";
@@ -34,7 +34,7 @@ export default function MovieDetail() {
   const { id } = params;
 
   const { movieDetail, loading, error } = useSelector(
-    (state: RootState) => state.movies
+    (state: RootState) => state.movieDetail
   );
 
   useEffect(() => {
