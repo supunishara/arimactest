@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { fetchMovies } from "@/lib/features/moviesSlice";
 import { RootState, AppDispatch } from "@/lib/store";
 import MovieCard from "@/components/MovieCard";
+import SearchBar from "@/components/SearchBar";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,10 +23,13 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+      <div className="flex flex-col justify-between items-center mb-8 gap-4 mt-10 relative">
         <h1 className="text-2xl font-bold dark:text-white">
           {search ? "Search Results" : "Popular Movies"}
         </h1>
+        <div className="flex items-center gap-4 w-full">
+          <SearchBar value={search} onChange={setSearch} />
+        </div>
       </div>
 
       {!loading && !error && movies.length === 0 && (

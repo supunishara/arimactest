@@ -2,14 +2,7 @@ import Link from "next/link";
 import { Movie } from "../types/movie";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 
 interface Props {
   movie: Movie;

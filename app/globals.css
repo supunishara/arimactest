@@ -10,6 +10,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .shad-input {
+    @apply placeholder:text-dark-600 border border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+  }
 }
 
 @layer base {
