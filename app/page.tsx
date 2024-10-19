@@ -39,6 +39,18 @@ export default function Home() {
         </div>
       </div>
 
+      {loading && (
+        <div className="flex justify-center items-center h-32 dark:text-white">
+          {"loading"}
+        </div>
+      )}
+
+      {error && (
+        <div className="text-red-500 text-center">
+          {"error"}: {error}
+        </div>
+      )}
+
       {!loading && !error && movies.length === 0 && (
         <div className="text-center dark:text-white">No movies found</div>
       )}
