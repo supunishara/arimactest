@@ -11,8 +11,10 @@ export default function SearchBar({ value, onChange }: Props) {
 
   return (
     <Input
-      placeholder={t("search movie here")}
+      placeholder={t("search a movie here")}
       className="shad-input border-1"
+      onChange={(e) => onChange(e.target.value)}
+      value={value}
     />
   );
 }

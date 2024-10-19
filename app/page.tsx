@@ -7,10 +7,12 @@ import { fetchMovies } from "@/lib/features/moviesSlice";
 import { RootState, AppDispatch } from "@/lib/store";
 import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
+import { useDebounce } from "@/hooks/useDebounce";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 500);
 
   const { movies, loading, error } = useSelector(
     (state: RootState) => state.movies
@@ -20,6 +22,11 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchMovies(""));
   }, [dispatch]);
+
+  // Fetch search results when search term changes
+  useEffect(() => {
+    dispatch(fetchMovies(debouncedSearch));
+  }, [debouncedSearch, dispatch]);
 
   return (
     <div className="max-w-7xl mx-auto">

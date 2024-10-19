@@ -15,8 +15,8 @@ export default function MovieCard({ movie }: Props) {
         <Card className="w-[300px]">
           <div className="relative h-[300px] w-[300px]">
             <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
+              src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+              alt={movie?.title}
               fill
               className="object-cover rounded-t-lg"
             />
@@ -24,11 +24,11 @@ export default function MovieCard({ movie }: Props) {
           <CardContent className="p-4">
             <CardTitle className="line-clamp-1">{movie.title}</CardTitle>
             <CardDescription className="mt-2 line-clamp-2">
-              {movie.overview}
+              {movie?.overview}
             </CardDescription>
             <div className="flex justify-between items-center mt-4 text-sm text-muted-foreground">
-              <span>{new Date(movie.release_date).getFullYear()}</span>
-              <span>⭐ {movie.vote_average.toFixed(1)}</span>
+              <span>{new Date(movie?.release_date).getFullYear()}</span>
+              <span>⭐ {movie?.vote_average?.toFixed(1)}</span>
             </div>
           </CardContent>
         </Card>
