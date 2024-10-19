@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      textDirection: {
+        rtl: "rtl",
+        ltr: "ltr",
+      },
       colors: {
         dark: {
           "200": "#0D0F10",

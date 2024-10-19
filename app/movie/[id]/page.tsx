@@ -10,6 +10,7 @@ import { RootState, AppDispatch } from "@/lib/store";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@nextui-org/spinner";
+const DefaultImage = "/assets/images/default.png";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -67,7 +68,11 @@ export default function MovieDetail() {
 
       <div className="grid md:grid-cols-2 gap-8">
         <Image
-          src={`https://image.tmdb.org/t/p/w500${movieDetail?.poster_path}`}
+          src={
+            movieDetail?.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movieDetail?.poster_path}`
+              : DefaultImage
+          }
           alt={movieDetail?.title}
           className="rounded-lg shadow-lg"
           width={400}

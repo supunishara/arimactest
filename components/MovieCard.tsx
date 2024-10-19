@@ -3,6 +3,7 @@ import { Movie } from "../types/movie";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
+const DefaultImage = "/assets/images/default.png";
 
 interface Props {
   movie: Movie;
@@ -15,7 +16,11 @@ export default function MovieCard({ movie }: Props) {
         <Card className="w-[300px]">
           <div className="relative h-[300px] w-[300px]">
             <Image
-              src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+              src={
+                movie?.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}`
+                  : DefaultImage
+              }
               alt={movie?.title}
               fill
               className="object-cover rounded-t-lg"

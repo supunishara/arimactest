@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "search": "بحث"
+  },
+  "movies": {
+    "popularMovies": "الأفلام الشائعة",
+    "searchResults": "نتائج البحث",
+    "noMoviesFound": "لم يتم العثور على أفلام",
+    "loading": "جار التحميل..."
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "home": "Home",
+    "search": "Search"
+  },
+  "movies": {
+    "popularMovies": "Popular Movies",
+    "searchResults": "Search Results",
+    "noMoviesFound": "No movies found",
+    "loading": "Loading..."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}
