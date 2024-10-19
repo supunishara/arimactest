@@ -18,6 +18,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -74,6 +75,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold dark:text-white">
             {search ? "Search Results" : "Popular Movies"}
           </h1>
+          <ThemeToggle />
           <div className="flex items-center gap-4 w-full">
             <SearchBar value={search} onChange={setSearch} />
           </div>
