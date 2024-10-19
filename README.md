@@ -1,36 +1,204 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🎬 Movie Search Application
+A modern, responsive movie search application built with Next.js 13+, featuring server-side rendering, RTL support, dark mode, and pagination.
 
-## Getting Started
+✨ Features
 
-First use 'npm install' in the project terminal to install dependencies, then run the development server by:
+🎯 Server-side rendering (SSR) for optimal performance
+🌓 Dark mode/light mode support
+🌐 Internationalization (i18n) with RTL language support
+📱 Responsive design for all devices
+🔍 Real-time search with debouncing
+📄 Pagination for better data handling
+✅ Comprehensive test coverage
+🎨 Modern UI with Tailwind CSS and shadcn/ui
 
-```bash
+🛠️ Technologies Used
+
+Framework: Next.js 14
+Language: TypeScript
+State Management: Redux Toolkit
+Styling:
+
+Tailwind CSS
+shadcn/ui components
+Framer Motion for animations
+
+Testing:
+
+Jest
+React Testing Library
+
+Internationalization: next-intl
+API: TMDB (The Movie Database)
+Others:
+
+ESLint
+Prettier
+
+📋 Prerequisites
+Before you begin, ensure you have:
+
+Node.js 18.0 or later
+npm or yarn
+A TMDB API key (Get one here)
+
+🚀 Getting Started
+
+1. Clone the repository
+
+git clone https://github.com/yourusername/movie-search-app.git
+cd movie-search-app
+
+2. Install dependencies
+
+npm install
+
+# or
+
+yarn install
+
+3. Environment Setup
+   Create a .env.local file in the root directory:
+
+NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
+
+4. Run the development server
+
 npm run dev
+
 # or
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🧪 Running Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Run all tests
 
-## Learn More
+npm test
 
-To learn more about Next.js, take a look at the following resources:
+# Run tests in watch mode
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm run test:watch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Generate coverage report
 
-## Deploy on Vercel
+npm run test:coverage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+movie-search-app/
+├── app/
+└── [locale]/
+│ ├── layout.tsx
+│ └── page.tsx
+[movie]/
+└── page.tsx
+├── components/
+├── ui(Shadcn components)  
+ ├── HomePage.tsx
+├── language-toggle.tsx
+├── MovieCard.tsx
+├── PageTransition.tsx
+├── SearchBar.tsx
+├── theme-provider.tsx
+└── theme-toggle
+├── hooks/
+├──useDebounce.ts
+├── lib/
+├── [features]
+├── movieDetailSlice.ts
+├── moviesSlice
+├── themeSlice.ts
+├── useDebounce.ts
+├── api.ts
+├── providers.tsx
+└── store.ts
+└── utils.ts
+├── messages/
+│ ├── en.json
+│ └── ar.json
+├── public/
+├── types
+├── **tests**/
+└── ...configuration files
+
+🔍 Key Features Implementation
+Server-Side Rendering
+The application implements SSR for the initial data load, providing:
+
+Faster initial page load
+Better SEO
+Improved performance
+
+Internationalization
+Supports multiple languages with:
+
+RTL layout support
+Language switching
+Localized content
+Persisted language preference
+
+Theme Support
+Implements a theme system with:
+
+Light/dark mode
+System preference detection
+Smooth theme transitions
+Persisted theme preference
+
+Search Functionality
+Features a robust search system with:
+
+Debounced search
+Real-time results
+Error handling
+Loading states
+
+🔄 State Management
+The application uses Redux Toolkit for state management, handling:
+
+Movie data
+Search state
+Pagination
+Loading states
+Error handling
+
+📱 Responsive Design
+The UI is fully responsive and tested across:
+
+Mobile devices
+Tablets
+Desktop screens
+Different browsers
+
+⚙️ Configuration Options
+Environment Variables
+
+NEXT_PUBLIC_TMDB_API_KEY=your_api_key
+NEXT_PUBLIC_API_URL=https://api.themoviedb.org/3
+
+Internationalization
+Supported languages:
+
+English (LTR)
+Arabic (RTL)
+
+Add more languages by:
+
+Creating a new translation file in /messages
+Adding the locale to the language toggle
+Updating the middleware configuration
+
+📜 License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+🙏 Acknowledgments
+
+TMDB for the movie data API
+shadcn/ui for the beautiful UI components
+next-intl for internationalization support
+
+📞 Contact
+supunishara3@gmail.com
+Project Link: https://github.com/supunishara/arimactest
