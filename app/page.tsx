@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { fetchMovies } from "@/lib/features/moviesSlice";
 import { RootState, AppDispatch } from "@/lib/store";
+import MovieCard from "@/components/MovieCard";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,8 +19,6 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchMovies(""));
   }, [dispatch]);
-
-  console.log("movies-------", movies);
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -35,7 +34,7 @@ export default function Home() {
 
       <div>
         {movies.map((movie) => (
-          <h1>{movie.title}</h1>
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
