@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Movie, MovieDetails } from "@/types/movie";
+import { Movie } from "@/types/movie";
 import { motion } from "framer-motion";
 import { fetchMovieDetails } from "@/lib/features/movieDetailSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,7 +38,7 @@ export default function MovieDetail() {
   );
 
   useEffect(() => {
-    dispatch(fetchMovieDetails(id));
+    dispatch(fetchMovieDetails(+id));
   }, [id]);
 
   if (loading) {
@@ -73,7 +73,7 @@ export default function MovieDetail() {
               ? `https://image.tmdb.org/t/p/w500${movieDetail?.poster_path}`
               : DefaultImage
           }
-          alt={movieDetail?.title}
+          alt={movieDetail?.overview}
           className="rounded-lg shadow-lg"
           width={400}
           height={600}
