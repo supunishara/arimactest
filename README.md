@@ -1,204 +1,167 @@
-🎬 Movie Search Application
-A modern, responsive movie search application built with Next.js 13+, featuring server-side rendering, RTL support, dark mode, and pagination.
+# 🌐 Next.js Multilingual RTL/LTR Web Application
 
-✨ Features
+[![Next.js](https://img.shields.io/badge/Next.js-13.5+-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-🎯 Server-side rendering (SSR) for optimal performance
-🌓 Dark mode/light mode support
-🌐 Internationalization (i18n) with RTL language support
-📱 Responsive design for all devices
-🔍 Real-time search with debouncing
-📄 Pagination for better data handling
-✅ Comprehensive test coverage
-🎨 Modern UI with Tailwind CSS and shadcn/ui
+A modern, internationalized Next.js application with full RTL (Right-to-Left) support, built with TypeScript and Tailwind CSS. This project demonstrates best practices for building multilingual web applications with seamless language switching capabilities.
 
-🛠️ Technologies Used
+## ✨ Features
 
-Framework: Next.js 14
-Language: TypeScript
-State Management: Redux Toolkit
-Styling:
+- 🌍 Multilingual support with English and Arabic
+- ⚡️ RTL/LTR layout switching
+- 🎨 Responsive design with Tailwind CSS
+- 🔄 Automatic locale detection
+- 🛣️ Internationalized routing
+- 🏗️ Type-safe development with TypeScript
+- 🎯 SEO optimized
+- 🔒 Middleware-based locale handling
 
-Tailwind CSS
-shadcn/ui components
-Framer Motion for animations
+## 🚀 Tech Stack
 
-Testing:
+- **Framework**: [Next.js 13.5+](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Internationalization**: Built-in Next.js i18n
+- **Formatting**: [Prettier](https://prettier.io/)
+- **Linting**: [ESLint](https://eslint.org/)
 
-Jest
-React Testing Library
+## 📋 Prerequisites
 
-Internationalization: next-intl
-API: TMDB (The Movie Database)
-Others:
+Before you begin, ensure you have the following installed:
 
-ESLint
-Prettier
+- [Node.js](https://nodejs.org/) (v18.0.0 or higher)
+- [npm](https://www.npmjs.com/) (v8.0.0 or higher)
+- [Git](https://git-scm.com/)
 
-📋 Prerequisites
-Before you begin, ensure you have:
+## 🛠️ Installation
 
-Node.js 18.0 or later
-npm or yarn
-A TMDB API key (Get one here)
+1. Clone the repository:
 
-🚀 Getting Started
+```bash
+git clone https://github.com/yourusername/your-project-name.git
+cd your-project-name
+```
 
-1. Clone the repository
+2. Install dependencies:
 
-git clone git@github.com:supunishara/arimactest.git
-cd arimactest
-
-2. Install dependencies
-
+```bash
 npm install
-
 # or
-
 yarn install
-
-3. Environment Setup
-   Create a .env.local file in the root directory:
-
-NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
-
-4. Run the development server
-
-npm run dev
-
 # or
+pnpm install
+```
 
+3. Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_API_URL=your_api_url_here
+```
+
+4. Run the development server:
+
+```bash
+npm run dev
+# or
 yarn dev
+# or
+pnpm dev
+```
 
-Open http://localhost:3000 in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-🧪 Running Tests
+## 📁 Project Structure
 
-# Run all tests
-
-npm test
-
-# Run tests in watch mode
-
-npm run test:watch
-
-# Generate coverage report
-
-npm run test:coverage
-
-📁 Project Structure
-
-movie-search-app/
+```
 ├── app/
-└── [locale]/
-│ ├── layout.tsx
-│ └── page.tsx
-[movie]/
-└── page.tsx
-├── components/
-├── ui(Shadcn components)  
- ├── HomePage.tsx
-├── language-toggle.tsx
-├── MovieCard.tsx
-├── PageTransition.tsx
-├── SearchBar.tsx
-├── theme-provider.tsx
-└── theme-toggle
-├── hooks/
-├──useDebounce.ts
-├── lib/
-├── [features]
-├── movieDetailSlice.ts
-├── moviesSlice
-├── themeSlice.ts
-├── useDebounce.ts
-├── api.ts
-├── providers.tsx
-└── store.ts
-└── utils.ts
-├── messages/
-│ ├── en.json
-│ └── ar.json
+│   ├── [locale]/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── ...
+│   ├── components/
+│   │   └── ui/
+│   └── i18n/
 ├── public/
-├── types
-├── **tests**/
-└── ...configuration files
+├── styles/
+├── types/
+├── middleware.ts
+├── next.config.js
+└── tailwind.config.js
+```
 
-🔍 Key Features Implementation
-Server-Side Rendering
-The application implements SSR for the initial data load, providing:
+## 🔧 Configuration
 
-Faster initial page load
-Better SEO
-Improved performance
+### Internationalization
 
-Internationalization
-Supports multiple languages with:
+Add new languages by updating the following files:
 
-RTL layout support
-Language switching
-Localized content
-Persisted language preference
+1. `i18n-config.ts`:
 
-Theme Support
-Implements a theme system with:
+```typescript
+export const i18n = {
+  defaultLocale: "en",
+  locales: ["en", "ar"],
+} as const;
+```
 
-Light/dark mode
-System preference detection
-Smooth theme transitions
-Persisted theme preference
+2. `middleware.ts`:
 
-Search Functionality
-Features a robust search system with:
+```typescript
+const locales = ["en", "ar"];
+```
 
-Debounced search
-Real-time results
-Error handling
-Loading states
+### Styling
 
-🔄 State Management
-The application uses Redux Toolkit for state management, handling:
+Tailwind CSS configuration can be modified in `tailwind.config.js`:
 
-Movie data
-Search state
-Pagination
-Loading states
-Error handling
+```javascript
+module.exports = {
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  // ...
+};
+```
 
-📱 Responsive Design
-The UI is fully responsive and tested across:
+## 🌐 Available Routes
 
-Mobile devices
-Tablets
-Desktop screens
-Different browsers
+- `/en/*` - English version of the site
+- `/ar/*` - Arabic version of the site (RTL)
 
-⚙️ Configuration Options
-Environment Variables
+## 📝 Scripts
 
-NEXT_PUBLIC_TMDB_API_KEY=your_api_key
-NEXT_PUBLIC_API_URL=https://api.themoviedb.org/3
+- `npm run dev` - Start development server
+- `npm run build` - Build production bundle
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
-Internationalization
-Supported languages:
+## 🤝 Contributing
 
-English (LTR)
-Arabic (RTL)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Add more languages by:
+## 📄 License
 
-Creating a new translation file in /messages
-Adding the locale to the language toggle
-Updating the middleware configuration
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-📜 License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-🙏 Acknowledgments
+## 👥 Authors
 
-TMDB for the movie data API
-shadcn/ui for the beautiful UI components
-next-intl for internationalization support
+- **Supun Ishara** - _Initial work_ - [YourGithub](https://github.com/supunishara)
 
-📞 Contact
-supunishara3@gmail.com
-Project Link: https://github.com/supunishara/arimactest
+## 🙏 Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Components](https://ui.shadcn.com/)
+
+## 🤔 Support
+
+For support, email supunishara3@gmail.com or create an issue in this repository.
+
+---
+
+Made with ❤️ by Supun Ishara(https://github.com/supunishara)
