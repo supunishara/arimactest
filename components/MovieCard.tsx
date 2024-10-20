@@ -17,7 +17,7 @@ export default function MovieCard({ movie }: Props) {
         className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-md"
       >
         <motion.div whileHover={{ scale: 1.05 }} className="h-full">
-          <div className="border border-gray-200 dark:border-gray-700">
+          <div className="border border-gray-200 dark:border-gray-700 ">
             <div className="relative h-[300px] w-full">
               <Image
                 src={
