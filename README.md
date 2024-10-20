@@ -1,6 +1,6 @@
 # 🌐 Next.js Multilingual RTL/LTR Web Application
 
-[![Next.js](https://img.shields.io/badge/Next.js-13.5+-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.0+-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
@@ -40,8 +40,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-project-name.git
-cd your-project-name
+git clone git@github.com:supunishara/arimactest.git
+cd arimactest
 ```
 
 2. Install dependencies:
@@ -57,7 +57,7 @@ pnpm install
 3. Create a `.env.local` file in the root directory:
 
 ```env
-NEXT_PUBLIC_API_URL=your_api_url_here
+NEXT_PUBLIC_API_URL=your_TMDB_api_url_here
 ```
 
 4. Run the development server:
@@ -76,17 +76,19 @@ pnpm dev
 
 ```
 ├── app/
-│   ├── [locale]/
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── ...
+│   ├── layout.tsx
+│   ├── page.tsx
+│   │   └──movie/[id]
+            └── page.tsx
 │   ├── components/
 │   │   └── ui/
-│   └── i18n/
+├── components/
+├── lib/
+├── hooks/
+├── messages/
 ├── public/
 ├── styles/
 ├── types/
-├── middleware.ts
 ├── next.config.js
 └── tailwind.config.js
 ```
